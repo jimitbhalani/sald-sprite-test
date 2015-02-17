@@ -51,6 +51,7 @@ var player = {
 	frame: 0,
 };
 
+//define booleans for moving up, down,left, right and idle animations
 var up  = false;
 var down = false;
 var right = false;
@@ -126,8 +127,9 @@ function draw() {
 	//draw the player:
 	(function draw_player() {
 
+     //clip spritesheets to play specific animations on keypresses
 	 if(down)
-	   heroSprite.draw('down',player.x,player.y,0,1,1,0.5,0.5);
+	   heroSprite.draw('down',player.x,player.y,0,1,1,0.5,0.5); 
 
       if(up)
        heroSprite.draw('up',player.x,player.y,0,1,1,0.5,0.5);
@@ -172,6 +174,8 @@ function update(elapsed) {
 	//if (keys.D) command.x += 1.0;
 	//if (keys.S) command.y -= 1.0;
 	//if (keys.W) command.y += 1.0;
+
+	//on key press, draw the spritesheet animation, loop a certain animation with certain speed
 	if (keys.S)
 	{
        command.y -= 1.0;
@@ -231,6 +235,7 @@ function update(elapsed) {
 		//heroSprite.animators['down'].speed(20);
        
 		
+	//if no keys are pressed, stop looping all the current animations and set idle animation to true
 	} else {
 		//player is stopped:
 		heroSprite.animators['down'].stop();
