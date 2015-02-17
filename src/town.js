@@ -2,6 +2,7 @@ var sprite = require('sald:Sprite.js');
 var heroImg = require('../img/bing.png');
 var secondImg= require('../img/hero2.png');
 
+//define different animations from spritesheet. splice the spritesheet based on pixel coordinates.
 var heroSprite = new sprite(heroImg,
 {
 	'up':{
